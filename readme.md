@@ -1,10 +1,6 @@
 VariousStuff Plugin for CryEngine SDK
 =====================================
-TODO: Describe where you tested it.
-
-TODO: Describe the purpose of your plugin
-
-TODO: Describe where the latest version of your plugin can be found.
+Various Flownodes from the C++ tutorial series.
 
 Installation / Integration
 ==========================
