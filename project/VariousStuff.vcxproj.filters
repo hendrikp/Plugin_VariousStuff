@@ -65,6 +65,12 @@
     <ClCompile Include="..\src\Nodes\ValueTransform.cpp">
       <Filter>Flownodes</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Nodes\LookAt.cpp">
+      <Filter>Flownodes</Filter>
+    </ClCompile>
+    <ClCompile Include="TCPNode.cpp">
+      <Filter>Flownodes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\StdAfx.h">
