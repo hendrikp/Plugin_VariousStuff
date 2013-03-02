@@ -1,3 +1,8 @@
-VariousStuff Plugin 1.0.0.0 (2013)
+VariousStuff Plugin 1.0.3.0 (02.03.2013)
 ---------------------------
-Initial Stable Release for CryEngine (32/64 bit)
+Stable Release for CryEngine 3.4.5 (32/64 bit)
+
+New:
+* TCP-Communication (Tutorial 3)
+* LookAt (Tutorial 3)
+* ValueTransform (Tutorial 1)
