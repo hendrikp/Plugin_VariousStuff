@@ -35,6 +35,7 @@
     <ClCompile Include="..\src\CPluginVariousStuff.cpp" />
     <ClCompile Include="..\src\CPluginVariousStuffModule.cpp" />
     <ClCompile Include="..\src\Nodes\LookAt.cpp" />
+    <ClCompile Include="..\src\Nodes\ValueChannel.cpp" />
     <ClCompile Include="..\src\Nodes\ValueTransform.cpp" />
     <ClCompile Include="..\src\StdAfx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
