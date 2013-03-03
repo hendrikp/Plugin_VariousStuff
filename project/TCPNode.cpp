@@ -1,4 +1,8 @@
-/* TODO_Plugin - for licensing and copyright see license.txt */
+/* VariousStuff_Plugin - for licensing and copyright see license.txt */
+//  - 3/2/13 : Plugin SDK Port - Hendrik
+
+// Copyright (C), Russell Lowe, 2012
+// http://www.crydev.net/viewtopic.php?f=311&t=82303
 
 #include <StdAfx.h>
 #include <CPluginVariousStuff.h>
@@ -12,8 +16,8 @@
 #include <sstream> //for string stuff
 
 #pragma comment(lib, "Ws2_32.lib")
-#pragma comment(lib, "Mswsock.lib")
-#pragma comment (lib, "AdvApi32.lib")
+//#pragma comment(lib, "Mswsock.lib")
+//#pragma comment (lib, "AdvApi32.lib")
 
 #define DEFAULT_BUFLEN 8024
 

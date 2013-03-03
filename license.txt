@@ -27,4 +27,8 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 LookAt Flownode
 ===============
-Copyright (C), RenEvo Software & Designs (KAK), 2008
+Copyright (C) 2008, RenEvo Software & Designs (KAK)
+
+TCPCommunication Flownode
+===============
+Copyright (C) 2012, Russell Lowe

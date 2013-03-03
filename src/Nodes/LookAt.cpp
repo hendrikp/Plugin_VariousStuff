@@ -1,8 +1,9 @@
 /* VariousStuff_Plugin - for licensing and copyright see license.txt */
-//  - 2/17/13 : 3.4.4 compatibility - Hendrik
+//  - 2/17/13 : Plugin SDK Port - Hendrik
 
 // Copyright (C), RenEvo Software & Designs, 2008
 //  - 7/26/08 : File created - KAK
+// http://fgps.sourceforge.net/
 
 #include <StdAfx.h>
 #include <CPluginVariousStuff.h>
