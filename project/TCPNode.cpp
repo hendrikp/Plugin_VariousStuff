@@ -16,8 +16,6 @@
 #include <sstream> //for string stuff
 
 #pragma comment(lib, "Ws2_32.lib")
-//#pragma comment(lib, "Mswsock.lib")
-//#pragma comment (lib, "AdvApi32.lib")
 
 #define DEFAULT_BUFLEN 8024
 
@@ -42,10 +40,7 @@ namespace TCPClientPlugin
         int active;
         struct addrinfo* result, *ptr, hints;
 
-
-        // -------------------------------------------------------------------------------------------------------------------------------
         // DEFINE INPUT PORTS
-        // -------------------------------------------------------------------------------------------------------------------------------
         typedef enum
         {
             PORT_IN_ACTIVE,
@@ -53,10 +48,7 @@ namespace TCPClientPlugin
             PORT_IN_IP,
         } InputPorts;
 
-
-        // -------------------------------------------------------------------------------------------------------------------------------
         // DEFINE OUTPUT PORTS
-        // -------------------------------------------------------------------------------------------------------------------------------
         typedef enum
         {
             PORT_OUT_WAIST_POS,
@@ -95,15 +87,12 @@ namespace TCPClientPlugin
             PORT_OUT_DEBUG,
         } OutputPorts;
 
-
-
     public:
         virtual IFlowNodePtr Clone( SActivationInfo* pActInfo )
         {
             return new CFlowTCPCommunicationNode( pActInfo );
         }
 
-        // -------------------------------------------------------------------------------------------------------------------------------
         CFlowTCPCommunicationNode( SActivationInfo* pActInfo )
         {
             ConnectSocket = INVALID_SOCKET;
@@ -112,16 +101,13 @@ namespace TCPClientPlugin
             active = 0;
         }
 
-        // -------------------------------------------------------------------------------------------------------------------------------
         ~CFlowTCPCommunicationNode()
         {
-
             freeaddrinfo( result );
             closesocket( ConnectSocket );
             WSACleanup();
         }
 
-        // -------------------------------------------------------------------------------------------------------------------------------
         virtual void GetConfiguration( SFlowNodeConfig& config )
         {
             // ACHTUNG! Do not include spaces in the port name! Flow graph editor will be unable to save/load correctly due to spaces when xml paring
@@ -174,20 +160,16 @@ namespace TCPClientPlugin
 
             config.pInputPorts = inputs;
             config.pOutputPorts = outputs;
-            config.sDescription = _HELP( "TCP Server" );
+            config.sDescription = _HELP( "TCP Client for Kinect Data" );
             config.SetCategory( EFLN_APPROVED );
 
         }
 
-        // -------------------------------------------------------------------------------------------------------------------------------
         // CALLED ON EVENT TRIGGER, ACTIVATE OR UPDATE
-        // -------------------------------------------------------------------------------------------------------------------------------
         virtual void ProcessEvent( EFlowEvent event, SActivationInfo* pActInfo )
         {
-
             switch ( event )
             {
-
             case eFE_Update:
                 OnUpdate( pActInfo );
                 break;
@@ -195,25 +177,17 @@ namespace TCPClientPlugin
             case eFE_Activate:
                 OnActivate( pActInfo );
                 break;
-
             }
         }
 
-
-
-        // -------------------------------------------------------------------------------------------------------------------------------
         // ON NODE TRIGGER - DETERMINE WHICH PORT WAS SENT DATA
-        // -------------------------------------------------------------------------------------------------------------------------------
         void OnActivate( SActivationInfo* pActInfo )
         {
             IFlowGraph* pGraph = pActInfo->pGraph;
             TFlowNodeId nodeId = pActInfo->myID;
 
-
             if ( IsPortActive( pActInfo, PORT_IN_ACTIVE ) )
             {
-
-
                 if ( active == 0 )
                 {
                     active = 1;
@@ -222,7 +196,7 @@ namespace TCPClientPlugin
                     string port = GetPortString( pActInfo, PORT_IN_PORT );
                     string ip = GetPortString( pActInfo, PORT_IN_IP );
 
-                    int iResult = WSAStartup( MAKEWORD( 2, 2 ), &wsaData ); // this wasn't nessasary for the server??
+                    int iResult = WSAStartup( MAKEWORD( 2, 2 ), &wsaData ); // this wasn't necessary for the server??
 
                     if ( iResult != 0 )
                     {
@@ -236,7 +210,6 @@ namespace TCPClientPlugin
                     hints.ai_family   = AF_UNSPEC;
                     hints.ai_socktype = SOCK_STREAM;
                     hints.ai_protocol = IPPROTO_TCP;
-
 
                     iResult = getaddrinfo( ip, port, &hints, &result );
 
@@ -289,19 +262,15 @@ namespace TCPClientPlugin
                     u_long iMode = 1;
                     ioctlsocket( ConnectSocket, FIONBIO, &iMode );
 
-
                     // Activate update loop
                     pActInfo->pGraph->SetRegularlyUpdated( pActInfo->myID, true );
 
                     string debug = "Active";
                     ActivateOutput( pActInfo, PORT_OUT_DEBUG, debug );
-
-
                 }
 
                 else
                 {
-
                     active = 0;
 
                     // Disable update loop
@@ -309,23 +278,15 @@ namespace TCPClientPlugin
                     closesocket( ConnectSocket );
                     WSACleanup();
 
-
-
                     string debug = "Disabled";
                     ActivateOutput( pActInfo, PORT_OUT_DEBUG, debug );
-
                 }
-
             }
 
             return;
         }
 
-
-
-        // -------------------------------------------------------------------------------------------------------------------------------
         // NODE UPDATE LOOP, ACTIVE STATE TRIGGERED FROM WITHIN ONACTIVATE FUNCTION
-        // -------------------------------------------------------------------------------------------------------------------------------
         void OnUpdate( SActivationInfo* pActInfo )
         {
             // CLEAR BUFFER
@@ -343,7 +304,6 @@ namespace TCPClientPlugin
             joint* ptr = ( joint* ) &recvbuf[16];
 
             // DECLARE EACH JOINT
-
             joint waist = ptr[0];
             joint torso = ptr[1];
             joint neck = ptr[2];
@@ -360,7 +320,6 @@ namespace TCPClientPlugin
             joint hipL = ptr[13];
             joint kneeL = ptr[14];
             joint footL = ptr[15];
-
 
             Vec3 waistPos = Vec3( ( float )waist.mT[0], ( float )waist.mT[1], ( float )waist.mT[2] );
             Vec3 waistRot = Vec3( ( float )waist.mR[0], ( float )waist.mR[1], ( float )waist.mR[2] );
@@ -450,4 +409,4 @@ namespace TCPClientPlugin
     };
 }
 
-REGISTER_FLOW_NODE_EX( "VariousStuff:TCPCommunication", TCPClientPlugin::CFlowTCPCommunicationNode, CFlowTCPCommunicationNode );
+REGISTER_FLOW_NODE_EX( "VariousStuff:TCPClientKinect", TCPClientPlugin::CFlowTCPCommunicationNode, CFlowTCPCommunicationNode );
