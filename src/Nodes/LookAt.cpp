@@ -214,7 +214,7 @@ namespace VariousStuffPlugin
                         // If entity is actor, use eye position instead!
                         Vec3 vEntityLookPos( 0.f, 0.f, 0.f );
                         bool bIsEntityActor = false;
-                        IActorSystem* pActSys = gEnv->pGameFramework->GetIActorSystem();
+                        IActorSystem* pActSys = gEnv->pGame ? gEnv->pGame->GetIGameFramework()->GetIActorSystem() : NULL;
 
                         if ( pActSys )
                         {

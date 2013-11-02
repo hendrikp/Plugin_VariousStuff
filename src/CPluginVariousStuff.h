@@ -2,10 +2,10 @@
 
 #pragma once
 
+#include <IPluginBase.h>
 #include <Game.h>
 
 #include <IPluginManager.h>
-#include <IPluginBase.h>
 #include <CPluginBase.hpp>
 
 #include <IPluginVariousStuff.h>
@@ -40,7 +40,7 @@ namespace VariousStuffPlugin
 
             const char* GetVersion() const
             {
-                return "1.0.4.0";
+                return "1.1.4.0";
             };
 
             const char* GetName() const

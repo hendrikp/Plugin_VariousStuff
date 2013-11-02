@@ -3,13 +3,13 @@
 // Idea based on FGPS Signaler
 
 #include <StdAfx.h>
+
+#include <CPluginVariousStuff.h>
 #include <Nodes/G2FlowBaseNode.h>
 
 #include <map>
 #include <list>
 #include <algorithm>
-
-#include <CPluginVariousStuff.h>
 
 #define MAXRECURSIONDEPTH 20 //!< Maximal recursion depth (safety measure, currently handled by cryengine anyways)
 
