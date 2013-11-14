@@ -101,7 +101,7 @@ namespace VariousStuffPlugin
                 }
 
                 // Game Objects
-                if (  gEnv->pGame && gEnv->pGame->GetIGameFramework() && ( enFactoryType == FT_All || enFactoryType == FT_GameObjectExtension ) )
+                if ( gEnv->pGame && gEnv->pGame->GetIGameFramework() && ( enFactoryType == FT_All || enFactoryType == FT_GameObjectExtension ) )
                 {
                     if ( !bUnregister )
                     {

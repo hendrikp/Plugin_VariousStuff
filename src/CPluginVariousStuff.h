@@ -69,7 +69,7 @@ namespace VariousStuffPlugin
 
             void* GetConcreteInterface( const char* sInterfaceVersion )
             {
-                return static_cast < IPluginVariousStuff* > ( this );
+                return static_cast <IPluginVariousStuff*>( this );
             };
 
             // IPluginVariousStuff

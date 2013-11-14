@@ -45,7 +45,7 @@ namespace VariousStuffPlugin
         public CFlowBaseNode<eNCT_Instanced>
     {
         private:
-            static std::map< string, std::list< CValueChannelNode<tValueType>* > > m_Channels; //!< Channel registry for each datatype
+            static std::map<string, std::list<CValueChannelNode<tValueType>*>> m_Channels; //!< Channel registry for each datatype
             string m_sCurrentChannel; //!< Current channel of this node
             SFlowAddressInfo m_Address; //!< Current Flowsystem Address of this node
 

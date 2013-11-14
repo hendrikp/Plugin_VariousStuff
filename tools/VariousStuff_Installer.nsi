@@ -6,7 +6,7 @@
 ##################################
 XPStyle on
 
-!define VERSION "1.0.4.0"
+!define VERSION "1.1.4.0"
 Name "VariousStuff Plugin ${VERSION} for CryEngine"
 
 ; The file to write

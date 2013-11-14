@@ -30,12 +30,6 @@
     <None Include="..\changelog.md" />
     <None Include="..\license.txt" />
     <None Include="..\authors.txt" />
-    <None Include="..\tools\_astyle.exe">
-      <Filter>Tools</Filter>
-    </None>
-    <None Include="..\tools\_stylehelper.bat">
-      <Filter>Tools</Filter>
-    </None>
     <None Include="..\tools\build.bat">
       <Filter>Tools</Filter>
     </None>
