@@ -62,11 +62,14 @@
     <ClCompile Include="..\src\Nodes\LookAt.cpp">
       <Filter>Flownodes</Filter>
     </ClCompile>
-    <ClCompile Include="TCPNode.cpp">
-      <Filter>Flownodes</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\Nodes\ValueChannel.cpp">
       <Filter>Flownodes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Nodes\TCPNode.cpp">
+      <Filter>Flownodes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\CDynMatEntity.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -81,6 +84,9 @@
     </ClInclude>
     <ClInclude Include="resource.h">
       <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\CDynMatEntity.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

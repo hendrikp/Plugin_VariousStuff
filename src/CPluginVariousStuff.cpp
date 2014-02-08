@@ -3,6 +3,9 @@
 #include <StdAfx.h>
 #include <CPluginVariousStuff.h>
 
+// Entities
+#include <CDynMatEntity.h>
+
 namespace VariousStuffPlugin
 {
     CPluginVariousStuff* gPlugin = NULL;
@@ -105,8 +108,7 @@ namespace VariousStuffPlugin
                 {
                     if ( !bUnregister )
                     {
-                        // TODO: Register Game Object Extensions here if you have some
-                        // ...
+                        REGISTER_GAME_OBJECT( gEnv->pGame->GetIGameFramework(), DynMatEntity, "" );
                     }
                 }
             }

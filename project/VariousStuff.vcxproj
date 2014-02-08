@@ -30,9 +30,11 @@
     <None Include="..\tools\VariousStuff_Installer.nsi" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\src\CDynMatEntity.cpp" />
     <ClCompile Include="..\src\CPluginVariousStuff.cpp" />
     <ClCompile Include="..\src\CPluginVariousStuffModule.cpp" />
     <ClCompile Include="..\src\Nodes\LookAt.cpp" />
+    <ClCompile Include="..\src\Nodes\TCPNode.cpp" />
     <ClCompile Include="..\src\Nodes\ValueChannel.cpp" />
     <ClCompile Include="..\src\Nodes\ValueTransform.cpp" />
     <ClCompile Include="..\src\StdAfx.cpp">
@@ -41,10 +43,10 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="TCPNode.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\inc\IPluginVariousStuff.h" />
+    <ClInclude Include="..\src\CDynMatEntity.h" />
     <ClInclude Include="..\src\CPluginVariousStuff.h" />
     <ClInclude Include="..\src\StdAfx.h" />
     <ClInclude Include="resource.h" />
